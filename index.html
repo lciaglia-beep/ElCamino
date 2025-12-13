@@ -146,7 +146,7 @@
         
         <!-- Header -->
         <header class="mb-16 animate-slide-up flex flex-col md:flex-row justify-between items-start md:items-end gap-8">
-            <div>
+            <div class="flex-1">
                 <div class="flex items-center gap-3 mb-6">
                     <div class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></div>
                     <span class="text-xs font-mono tracking-[0.2em] uppercase text-slate-500">Confidential Strategy Deck</span>
@@ -161,15 +161,17 @@
                 </p>
             </div>
             
-            <!-- Mini Galería de Productos Header -->
-            <div class="hidden md:flex gap-4">
-                 <div class="w-24 h-32 bg-slate-50 rounded-lg border border-slate-200 p-2 flex items-center justify-center relative overflow-hidden group">
-                    <img src="https://images.unsplash.com/photo-1616683693504-3ea7e9ad6fec?q=80&w=300&auto=format&fit=crop" class="w-full h-full object-cover rounded mix-blend-multiply opacity-80 group-hover:opacity-100 transition-opacity" alt="Celavive Serum">
-                    <span class="absolute bottom-1 left-0 right-0 text-[8px] text-center text-slate-500 uppercase font-bold tracking-wider">Celavive</span>
-                 </div>
-                 <div class="w-24 h-32 bg-slate-50 rounded-lg border border-slate-200 p-2 flex items-center justify-center relative overflow-hidden group">
-                    <img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?q=80&w=300&auto=format&fit=crop" class="w-full h-full object-cover rounded mix-blend-multiply opacity-80 group-hover:opacity-100 transition-opacity" alt="Nutrimeal">
-                    <span class="absolute bottom-1 left-0 right-0 text-[8px] text-center text-slate-500 uppercase font-bold tracking-wider">Nutrimeal</span>
+            <!-- Banner IA Header (Sustituye a las fotos anteriores) -->
+            <div class="hidden md:block w-full md:w-[400px]">
+                 <div class="rounded-xl border border-slate-200 p-1 bg-white shadow-lg rotate-1 hover:rotate-0 transition-transform duration-500">
+                    <img src="banner.png" class="w-full h-auto object-cover rounded-lg" alt="USANA AI Banner">
+                    <div class="pt-2 px-1 flex justify-between items-center">
+                        <span class="text-[10px] text-slate-400 font-mono uppercase">Generado con IA</span>
+                        <div class="flex gap-1">
+                            <div class="w-1.5 h-1.5 rounded-full bg-emerald-400"></div>
+                            <div class="w-1.5 h-1.5 rounded-full bg-blue-400"></div>
+                        </div>
+                    </div>
                  </div>
             </div>
         </header>
@@ -187,7 +189,7 @@
                 </div>
                 <div class="relative z-10 mt-auto">
                     <h3 class="text-2xl md:text-3xl font-medium text-slate-800 card-title transition-colors tracking-tight">El Nuevo Estándar UGC</h3>
-                    <p class="mt-2 text-sm text-slate-500 font-medium tracking-wide">Por qué las marcas de Health & Wellness se están volcando a la IA.</p>
+                    <p class="mt-2 text-sm text-slate-500 font-medium tracking-wide">Las marcas de belleza migran a Influencers Digitales. Piel perfecta consistente.</p>
                 </div>
                 <div class="arrow-icon absolute bottom-8 right-8 opacity-0 transform translate-x-4 transition-all duration-500 text-emerald-600">
                     <i data-lucide="arrow-right" class="w-6 h-6"></i>
@@ -197,7 +199,8 @@
             <!-- 2. PRODUCT SHOWCASE -->
             <div class="lg:col-span-1 bento-card group relative flex flex-col items-center justify-center h-64 p-0 w-full rounded-xl overflow-hidden text-left delay-100 animate-slide-up opacity-0" style="animation-fill-mode: forwards;">
                 <div class="absolute inset-0 bg-slate-50">
-                    <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover opacity-90 product-img" alt="USANA Lifestyle">
+                    <!-- Foto cambiada a foto.png -->
+                    <img src="foto.png" class="w-full h-full object-cover opacity-90 product-img" alt="USANA Lifestyle">
                 </div>
                 <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex flex-col justify-end p-8">
                     <h3 class="text-white font-medium text-xl">Lifestyle & Producto</h3>
@@ -383,7 +386,7 @@
                         </h2>
                         <p class="text-xl text-slate-500 font-light leading-relaxed">
                             Las marcas de belleza y bienestar están migrando a <span class="text-slate-900 font-medium">Influencers Digitales</span>. 
-                            ¿La razón? Piel perfecta consistente (sin brotes inesperados), disponibilidad 24/7 y la capacidad de hablar 30 idiomas para mercados globales.
+                            ¿La razón? Piel perfecta consistente, disponibilidad 24/7 y la capacidad de hablar 30 idiomas para mercados globales.
                         </p>
                     </div>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-8 pt-4">
