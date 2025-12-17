@@ -160,8 +160,6 @@
                     <span class="text-emerald-600 font-normal">Escalable. Global. On-Brand.</span>
                 </p>
             </div>
-            
-            <!-- Banner Eliminado a petición -->
         </header>
 
         <!-- GRID -->
@@ -251,7 +249,7 @@
                 </div>
             </button>
 
-             <!-- LLAVE EN MANO (NUEVO RECUADRO) -->
+             <!-- LLAVE EN MANO -->
              <button onclick="openModal('TURNKEY')" class="lg:col-span-3 bento-card group relative flex flex-col md:flex-row items-center justify-between min-h-48 p-8 w-full rounded-xl overflow-hidden text-left delay-500 animate-slide-up opacity-0 border-l-4 border-l-emerald-500" style="animation-fill-mode: forwards;">
                 <div class="flex-1 pr-6">
                     <div class="flex items-center gap-2 mb-3">
@@ -269,21 +267,24 @@
                 </div>
             </button>
 
-            <!-- 6. SAMPLES -->
-            <button onclick="openModal('SAMPLES')" class="lg:col-span-1 bento-card group relative flex flex-col items-start justify-between h-64 p-8 w-full rounded-xl overflow-hidden text-left delay-500 animate-slide-up opacity-0" style="animation-fill-mode: forwards;">
-                <div class="relative z-10 p-3 rounded-lg icon-box transition-colors duration-300">
-                    <i data-lucide="play-circle" class="w-6 h-6"></i>
+            <!-- 6. PRUEBAS (Samples) - SUBIDO Y ANCHO COMPLETO -->
+            <button onclick="openModal('SAMPLES')" class="lg:col-span-3 bento-card group relative flex flex-col items-start justify-between min-h-64 p-8 w-full rounded-xl overflow-hidden text-left delay-500 animate-slide-up opacity-0" style="animation-fill-mode: forwards;">
+                <div class="relative z-10 flex justify-between w-full items-start">
+                    <div class="p-3 rounded-lg icon-box transition-colors duration-300">
+                        <i data-lucide="play-circle" class="w-6 h-6"></i>
+                    </div>
+                    <span class="bg-slate-100 text-slate-500 px-3 py-1 rounded-full text-[10px] font-mono uppercase tracking-widest font-semibold">Demo Gallery</span>
                 </div>
                 <div class="relative z-10 mt-auto">
-                    <h3 class="text-2xl font-medium text-slate-800 transition-colors tracking-tight">Demos Skincare</h3>
-                    <p class="mt-2 text-sm text-slate-500 font-medium">Ver calidad de piel en avatares.</p>
+                    <h3 class="text-2xl font-medium text-slate-800 transition-colors tracking-tight">Pruebas</h3>
+                    <p class="mt-2 text-sm text-slate-500 font-medium">Ver ejemplos reales.</p>
                 </div>
                 <div class="arrow-icon absolute bottom-8 right-8 opacity-0 transform translate-x-4 transition-all duration-500 text-emerald-600">
                     <i data-lucide="arrow-right" class="w-6 h-6"></i>
                 </div>
             </button>
 
-            <!-- 7. ROADMAP -->
+            <!-- 7. ROADMAP (Bajado) -->
             <button onclick="openModal('ROADMAP')" class="lg:col-span-2 bento-card group relative flex flex-col items-start justify-between h-64 p-8 w-full rounded-xl overflow-hidden text-left delay-500 animate-slide-up opacity-0" style="animation-fill-mode: forwards;">
                 <div class="relative z-10 p-3 rounded-lg icon-box transition-colors duration-300">
                     <i data-lucide="map" class="w-6 h-6"></i>
@@ -312,7 +313,7 @@
             </button>
 
             <!-- 9. COMUNIDAD -->
-            <button onclick="openModal('COMMUNITY')" class="lg:col-span-2 bento-card group relative flex flex-col items-center justify-center h-64 p-8 w-full rounded-xl overflow-hidden text-center delay-500 animate-slide-up opacity-0" style="animation-fill-mode: forwards;">
+            <button onclick="openModal('COMMUNITY')" class="lg:col-span-3 bento-card group relative flex flex-col items-center justify-center h-64 p-8 w-full rounded-xl overflow-hidden text-center delay-500 animate-slide-up opacity-0" style="animation-fill-mode: forwards;">
                 <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-emerald-50 via-white to-white pointer-events-none opacity-50"></div>
                 
                 <div class="relative z-10 p-3 rounded-full icon-box mb-4 transition-colors duration-300">
@@ -352,7 +353,7 @@
 
     </div>
 
-    <!-- MODAL DE CONTENIDO GENERAL (Light Mode) -->
+    <!-- MODAL DE CONTENIDO GENERAL -->
     <div id="modal-overlay" class="fixed inset-0 z-50 flex items-center justify-center p-4 md:p-8 modal-hidden bg-slate-900/40 backdrop-blur-sm">
         <button onclick="closeModal()" class="absolute top-6 right-6 md:top-8 md:right-8 z-[60] p-2 rounded-full bg-white text-slate-400 hover:text-slate-800 hover:bg-slate-100 border border-slate-200 shadow-lg transition-all">
             <i data-lucide="x" class="w-5 h-5"></i>
@@ -398,7 +399,7 @@
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-8 pt-4">
                         <div class="bg-slate-50 p-6 rounded-lg border border-slate-100">
                             <h4 class="text-slate-900 font-medium mb-2">Consistencia Visual</h4>
-                            <p class="text-slate-500 text-sm">Ideal para la línea <strong>Celavive</strong>. Un avatar IA nunca tiene "un mal día de piel". Garantiza una imagen pulcra y saludable en cada frame.</p>
+                            <p class="text-slate-500 text-sm">Ideal para <strong>USANA</strong>. Un avatar IA mantiene una imagen consistente y profesional. Garantiza una imagen pulcra y saludable en cada frame.</p>
                         </div>
                         <div class="bg-emerald-50 p-6 rounded-lg border border-emerald-100">
                             <h4 class="text-emerald-700 font-medium mb-2">Velocidad de Campaña</h4>
@@ -462,10 +463,8 @@
                                 <h4 class="text-slate-900 font-medium text-xl">Pack Essential</h4>
                                 <span class="bg-slate-100 text-slate-600 text-[10px] px-2 py-1 rounded font-bold uppercase">Starter</span>
                             </div>
-                            <div class="text-3xl font-bold text-slate-900 mb-1">1.800€ <span class="text-sm font-normal text-slate-400">/mes</span></div>
-                            <p class="text-xs text-slate-500 mb-6">IVA no incluido</p>
                             
-                            <ul class="text-sm text-slate-600 space-y-3">
+                            <ul class="text-sm text-slate-600 space-y-3 mt-6">
                                 <li class="flex gap-2 items-center"><i data-lucide="check" class="w-4 h-4 text-emerald-500"></i> <strong>8 Vídeos UGC</strong> (Reels/TikTok)</li>
                                 <li class="flex gap-2 items-center"><i data-lucide="check" class="w-4 h-4 text-emerald-500"></i> 1 Avatar Personalizado</li>
                                 <li class="flex gap-2 items-center"><i data-lucide="check" class="w-4 h-4 text-emerald-500"></i> Guiones enfocados en venta</li>
@@ -480,10 +479,8 @@
                                 <h4 class="text-emerald-900 font-medium text-xl">Pack Scale + Fotos</h4>
                                 <span class="bg-emerald-200 text-emerald-800 text-[10px] px-2 py-1 rounded font-bold uppercase">Growth</span>
                             </div>
-                            <div class="text-3xl font-bold text-emerald-700 mb-1">3.000€ <span class="text-sm font-normal text-emerald-600/70">/mes</span></div>
-                            <p class="text-xs text-emerald-600/60 mb-6">IVA no incluido</p>
                             
-                            <ul class="text-sm text-emerald-800 space-y-3">
+                            <ul class="text-sm text-emerald-800 space-y-3 mt-6">
                                 <li class="flex gap-2 items-center"><i data-lucide="check" class="w-4 h-4 text-emerald-600"></i> <strong>16 Vídeos UGC</strong> (Alta Frecuencia)</li>
                                 <li class="flex gap-2 items-center"><i data-lucide="check" class="w-4 h-4 text-emerald-600"></i> <strong>Pack Fotografía Producto AI</strong> (10 fotos)</li>
                                 <li class="flex gap-2 items-center"><i data-lucide="check" class="w-4 h-4 text-emerald-600"></i> 2 Avatares (Ej: Nutricionista + Usuario)</li>
@@ -503,10 +500,6 @@
                     <div class="p-8 rounded-2xl bg-white text-slate-900 border border-slate-200 shadow-lg relative overflow-hidden">
                         <div class="flex justify-between items-center mb-6">
                             <h3 class="text-2xl font-medium">Setup + Monthly</h3>
-                            <div class="text-right">
-                                <div class="text-3xl font-bold text-slate-900">1.500€ <span class="text-sm font-normal text-slate-400">Setup</span></div>
-                                <div class="text-sm text-emerald-600 font-medium">+ 2.000€ / mes</div>
-                            </div>
                         </div>
                         <hr class="border-slate-100 my-6">
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -535,7 +528,6 @@
                     </p>
                     <div class="bg-slate-50 p-8 rounded-xl border border-slate-200 text-center">
                         <h4 class="text-slate-900 font-medium text-xl mb-2">Producción Masiva de Training</h4>
-                        <div class="text-4xl font-bold text-slate-900 mb-4">10.000€<span class="text-lg font-normal text-slate-400">/mes</span></div>
                         <p class="text-slate-500 text-sm max-w-md mx-auto mb-6">
                             Paquete de 100 Vídeos cortos para capacitación interna o externa sobre productos, plan de compensación y compliance.
                         </p>
@@ -671,14 +663,12 @@
                                 <div class="font-bold text-slate-900">Pack Essential</div>
                                 <div class="text-xs text-slate-500">8 Videos UGC / mes</div>
                             </div>
-                            <div class="text-xl font-bold text-emerald-600">1.800€</div>
                          </div>
                          <div class="border border-emerald-300 bg-emerald-50 rounded-lg p-4 flex items-center justify-between shadow-sm">
                             <div>
                                 <div class="font-bold text-emerald-900">Pack Scale + Fotos</div>
                                 <div class="text-xs text-emerald-700">16 Videos + Fotos Producto</div>
                             </div>
-                            <div class="text-xl font-bold text-emerald-700">3.000€</div>
                          </div>
                     </div>
 
@@ -723,12 +713,12 @@
                 <div class="animate-slide-up space-y-8">
                      <div class="flex items-center gap-3 mb-6 text-slate-400">
                         <i data-lucide="play-circle" class="w-6 h-6"></i>
-                        <span class="text-xs font-mono uppercase tracking-widest">Demos Celavive & Wellness</span>
+                        <span class="text-xs font-mono uppercase tracking-widest">Pruebas</span>
                     </div>
                     
                     <div class="text-center mb-10">
-                        <h2 class="text-3xl font-medium text-slate-900 mb-4">Calidad Visual</h2>
-                        <p class="text-slate-500">Ejemplos de piel, iluminación y naturalidad en avatares IA.</p>
+                        <h2 class="text-3xl font-medium text-slate-900 mb-4">Pruebas Visuales</h2>
+                        <p class="text-slate-500">Ejemplos de calidad y naturalidad.</p>
                     </div>
 
                     <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
@@ -740,7 +730,7 @@
                                     </div>
                                 </div>
                                 <div class="absolute bottom-0 left-0 right-0 p-3 bg-white/90 backdrop-blur-sm border-t border-slate-100">
-                                    <span class="text-xs font-mono text-slate-600">Demo Skincare ${i + 1}</span>
+                                    <span class="text-xs font-mono text-slate-600">Prueba ${i + 1}</span>
                                 </div>
                             </div>
                         `).join('')}
