@@ -54,6 +54,14 @@
             -moz-osx-font-smoothing: grayscale;
         }
 
+        /* Escalado inteligente para adaptar el 100% del gráfico a cualquier pantalla de PC */
+        @media (min-width: 1024px) and (max-width: 1420px) {
+            .scale-wrapper {
+                transform: scale(calc(100vw / 1420));
+                transform-origin: top center;
+            }
+        }
+
         /* Efecto Cristal Estilo Apple */
         .glass-card {
             background: linear-gradient(145deg, rgba(30, 30, 35, 0.6) 0%, rgba(15, 15, 18, 0.8) 100%);
@@ -107,10 +115,10 @@
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
         
-        /* Badges Estilo Píldora Apple */
+        /* Badges Estilo Píldora Apple - Separados de las cajas */
         .node-title-badge {
             position: absolute;
-            top: -12px;
+            top: -26px; /* Incrementado para separarlo visualmente de la caja */
             left: 50%;
             transform: translateX(-50%);
             background: rgba(10, 10, 12, 0.95);
@@ -118,10 +126,10 @@
             -webkit-backdrop-filter: blur(12px);
             color: #e4e4e7;
             border: 1px solid rgba(255, 255, 255, 0.15);
-            font-size: 9px;
+            font-size: 10px; /* Textos ampliados */
             font-weight: 800;
             text-transform: uppercase;
-            padding: 4px 12px;
+            padding: 5px 14px;
             border-radius: 9999px;
             z-index: 50; 
             white-space: nowrap;
@@ -167,395 +175,397 @@
         }
     </style>
 </head>
-<body class="min-h-screen flex flex-col items-center justify-center py-6 px-1 pb-12 no-scrollbar">
+<body class="min-h-screen flex flex-col items-center justify-start pt-2 px-1 pb-16 no-scrollbar">
 
-    <!-- Header / Título -->
-    <div class="text-center mb-4 xl:mb-4 shrink-0 mt-4 xl:mt-6 z-20 relative">
+    <!-- Header / Título Elevado -->
+    <div class="text-center mb-6 xl:mb-6 shrink-0 mt-0 z-20 relative">
         <h1 class="text-3xl md:text-4xl font-black tracking-tight uppercase text-white">
             THE IP <span class="bg-gradient-to-r from-yellow-200 to-yellow-500 bg-clip-text text-transparent drop-shadow-[0_2px_10px_rgba(250,204,21,0.4)]">PATH</span>
         </h1>
     </div>
 
-    <!-- Contenedor Principal -->
-    <div class="w-full flex flex-col xl:flex-row items-start xl:items-center justify-center gap-1 xl:gap-0 shrink-0 px-1 max-w-[1350px] mx-auto relative z-10 pt-4 xl:pt-16">
+    <!-- Contenedor Principal con Wrapper de Escalado -->
+    <div class="w-full flex justify-center items-start overflow-hidden xl:overflow-visible">
+        <div class="scale-wrapper w-full flex flex-col xl:flex-row items-start justify-center gap-1 xl:gap-0 shrink-0 px-1 max-w-[1380px] mx-auto relative z-10 pt-12">
 
-        <!-- NODO 1: ENTRADA -->
-        <div class="flex flex-col items-center relative shrink-0 w-[155px] mt-4 xl:mt-0">
-            <div class="node-title-badge">1. Reception</div>
-            
-            <!-- Funnel Visual Superior (Ajustado alto y recorte para mostrar el texto correctamente) -->
-            <div class="w-[105%] h-[85px] bg-gradient-to-b from-zinc-800/80 to-black border border-white/10 flex flex-col items-center justify-start pt-1.5 shadow-glass mb-1.5 relative z-10 backdrop-blur-md" style="clip-path: polygon(0 0, 100% 0, 75% 100%, 25% 100%); border-top: 2px solid #facc15;">
-                <span class="text-[9px] font-black uppercase text-premium-yellow leading-none mt-1 tracking-wider">1st Year Goal</span>
-                <span class="text-[7.5px] font-semibold text-gray-200 text-center leading-tight mt-1.5 px-2">
-                    Acquire 10,000 Writers.<br>
-                    Max. 1 to 3 movies each.
-                </span>
-            </div>
-
-            <!-- Card ajustada -->
-            <div class="glass-card p-3 mt-[-15px] text-center w-full relative z-0 node-card flex flex-col pt-5">
-                <p class="text-[8.5px] font-bold text-white leading-tight uppercase border-b border-white/10 pb-1 mb-1.5 tracking-wide">
-                    Strategic<br>Marketing Plan
-                </p>
+            <!-- NODO 1: ENTRADA -->
+            <div class="flex flex-col items-center relative shrink-0 w-[155px] mt-4 xl:mt-0">
+                <div class="node-title-badge">1. Reception</div>
                 
-                <p class="text-[7px] text-zinc-400 font-normal leading-[1.3] text-left px-0.5">
-                    <span class="font-semibold text-gray-200 block mb-1">Collaborative agreements with associations, e.g.:</span>
-                    <span class="block mb-0.5">▪ Canary Islands Audiovisual Cluster Association.</span>
-                    <span class="block mb-0.5">▪ Islabentura (Canary Islands screenwriters rep).</span>
-                    <span class="block mb-0.5">▪ EGEDA / Argentores: organization and group integration.</span>
-                    <span class="block mt-1">▪ <span class="font-semibold text-gray-200">Advertising:</span> IMDB, Letterboxd, Higgsfield...</span>
-                </p>
-            </div>
-        </div>
+                <!-- Funnel Visual Superior -->
+                <div class="w-[105%] h-[85px] bg-gradient-to-b from-zinc-800/80 to-black border border-white/10 flex flex-col items-center justify-start pt-1.5 shadow-glass mb-1.5 relative z-10 backdrop-blur-md" style="clip-path: polygon(0 0, 100% 0, 75% 100%, 25% 100%); border-top: 2px solid #facc15;">
+                    <span class="text-[10.5px] font-black uppercase text-premium-yellow leading-none mt-1 tracking-wider">1st Year Goal</span>
+                    <span class="text-[9px] font-semibold text-gray-200 text-center leading-tight mt-1.5 px-2">
+                        Acquire 10,000 Writers.<br>
+                        Max. 1 to 3 movies each.
+                    </span>
+                </div>
 
-        <!-- Conector 1 a 2 con FRASE Elevada -->
-        <div class="relative flex flex-col xl:flex-row items-center justify-center shrink-0 w-[20px] xl:w-[45px] my-3 xl:my-0 z-50">
-            <div class="hidden xl:block connector-h w-full z-0"></div>
-            <div class="xl:hidden connector-v"></div>
-            
-            <!-- POPUP OBSERVACIONES -->
-            <div class="xl:absolute xl:left-1/2 xl:-translate-x-1/2 xl:-top-[180px] bg-black/95 backdrop-blur-xl border border-white/15 rounded-lg p-2 text-center leading-tight w-[115px] z-50 shadow-[0_15px_40px_rgba(0,0,0,0.9)]">
-                <span class="text-white font-bold text-[8px] uppercase tracking-wider border-b border-white/10 pb-1 inline-block w-full mb-1">Observations</span>
-                <span class="text-[6.5px] font-normal text-zinc-300 block leading-relaxed px-0.5">Bidirectional plan: we seek Scripts (with or without AI).</span>
-                <div class="hidden xl:block absolute left-1/2 -translate-x-1/2 top-full w-[1.5px] h-[110px]" style="background-image: linear-gradient(to bottom, rgba(161,161,170,0.6) 50%, transparent 50%); background-size: 100% 6px; background-repeat: repeat-y; z-index: -1;"></div>
+                <!-- Card ajustada -->
+                <div class="glass-card p-3 mt-[-15px] text-center w-full relative z-0 node-card flex flex-col pt-5">
+                    <p class="text-[10px] font-bold text-white leading-tight uppercase border-b border-white/10 pb-1 mb-1.5 tracking-wide">
+                        Strategic<br>Marketing Plan
+                    </p>
+                    
+                    <p class="text-[8.5px] text-zinc-400 font-normal leading-[1.3] text-left px-0.5">
+                        <span class="font-semibold text-gray-200 block mb-1">Collaborative agreements with associations, e.g.:</span>
+                        <span class="block mb-0.5">▪ Canary Islands Audiovisual Cluster Association.</span>
+                        <span class="block mb-0.5">▪ Islabentura (Canary Islands screenwriters rep).</span>
+                        <span class="block mb-0.5">▪ EGEDA / Argentores: organization and group integration.</span>
+                        <span class="block mt-1">▪ <span class="font-semibold text-gray-200">Advertising:</span> IMDB, Letterboxd, Higgsfield...</span>
+                    </p>
+                </div>
             </div>
-        </div>
 
-        <!-- NODO 2: AUDITORÍA (BARRERAS) -->
-        <div class="glass-card p-3 w-[145px] node-card relative shrink-0 mt-4 xl:mt-0">
-            <div class="node-title-badge">2. Audit</div>
-            
-            <p class="text-[9px] font-bold text-white mt-2 mb-2 text-center uppercase tracking-widest border-b border-white/10 pb-1">
-                Entry Barriers
-            </p>
-            
-            <ul class="space-y-3">
-                <li class="flex items-start gap-1.5">
-                    <i data-lucide="file-signature" class="w-3.5 h-3.5 text-premium-yellow shrink-0 mt-0.5"></i>
-                    <div class="w-full">
-                        <span class="font-semibold text-[8.5px] text-gray-200 leading-none block mb-1">Sworn Statement</span>
-                        <span class="text-[7px] text-zinc-400 leading-none block mb-1.5">Origin of the work. The author must complete:</span>
-                        <div class="flex gap-1.5 text-[7.5px] font-medium text-zinc-300">
-                            <label class="flex items-center gap-1 cursor-not-allowed opacity-80"><input type="checkbox" checked disabled> Without AI</label>
-                            <label class="flex items-center gap-1 cursor-not-allowed opacity-80"><input type="checkbox" disabled> With AI</label>
+            <!-- Conector 1 a 2 (Popup Elevado) -->
+            <div class="relative flex flex-col xl:flex-row items-center justify-center shrink-0 w-[20px] xl:w-[45px] my-3 xl:my-0 xl:mt-[50px] z-50">
+                <div class="hidden xl:block connector-h w-full z-0"></div>
+                <div class="xl:hidden connector-v"></div>
+                
+                <!-- POPUP OBSERVACIONES (Movido hacia arriba para no ensuciar) -->
+                <div class="xl:absolute xl:left-1/2 xl:-translate-x-1/2 xl:-top-[150px] bg-black/95 backdrop-blur-xl border border-white/15 rounded-lg p-2 text-center leading-tight w-[130px] z-50 shadow-[0_15px_40px_rgba(0,0,0,0.9)]">
+                    <span class="text-white font-bold text-[9.5px] uppercase tracking-wider border-b border-white/10 pb-1 inline-block w-full mb-1">Observations</span>
+                    <span class="text-[8px] font-normal text-zinc-300 block leading-relaxed px-0.5">Bidirectional plan: we seek Scripts (with or without AI).</span>
+                    <!-- Línea Conectora más larga -->
+                    <div class="hidden xl:block absolute left-1/2 -translate-x-1/2 top-full w-[1.5px] h-[120px]" style="background-image: linear-gradient(to bottom, rgba(161,161,170,0.6) 50%, transparent 50%); background-size: 100% 6px; background-repeat: repeat-y; z-index: -1;"></div>
+                </div>
+            </div>
+
+            <!-- NODO 2: AUDITORÍA (BARRERAS) -->
+            <div class="relative flex flex-col items-center shrink-0 w-[145px] mt-4 xl:mt-0">
+                <div class="node-title-badge">2. Audit</div>
+                
+                <div class="glass-card p-3 w-full node-card relative">
+                    <p class="text-[10.5px] font-bold text-white mb-2 text-center uppercase tracking-widest border-b border-white/10 pb-1">
+                        Entry Barriers
+                    </p>
+                    
+                    <ul class="space-y-3">
+                        <li class="flex items-start gap-1.5">
+                            <i data-lucide="file-signature" class="w-3.5 h-3.5 text-premium-yellow shrink-0 mt-0.5"></i>
+                            <div class="w-full">
+                                <span class="font-semibold text-[10px] text-gray-200 leading-none block mb-1">Sworn Statement</span>
+                                <span class="text-[8.5px] text-zinc-400 leading-none block mb-1.5">Origin of the work. The author must complete:</span>
+                                <div class="flex gap-1.5 text-[9px] font-medium text-zinc-300">
+                                    <label class="flex items-center gap-1 cursor-not-allowed opacity-80"><input type="checkbox" checked disabled> Without AI</label>
+                                    <label class="flex items-center gap-1 cursor-not-allowed opacity-80"><input type="checkbox" disabled> With AI</label>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-1.5">
+                            <i data-lucide="shield-check" class="w-3.5 h-3.5 text-premium-yellow shrink-0 mt-0.5"></i>
+                            <div class="w-full">
+                                <span class="font-semibold text-[10px] text-gray-200 leading-none block mb-1.5">Profile Validation</span>
+                                <span class="text-[9px] text-zinc-300 font-medium leading-relaxed block bg-white/5 border border-white/10 px-1.5 py-1 rounded-md w-full">IMDB + Filmography Track Record</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Conector 2 a 3 (Popup Elevado) -->
+            <div class="relative flex flex-col xl:flex-row items-center justify-center shrink-0 w-[20px] xl:w-[45px] my-3 xl:my-0 xl:mt-[50px] z-50">
+                <div class="hidden xl:block connector-h w-full z-0"></div>
+                <div class="xl:hidden connector-v"></div>
+                
+                <!-- POPUP CREADOR LISTO (Movido hacia arriba para no ensuciar) -->
+                <div class="xl:absolute xl:left-1/2 xl:-translate-x-[75%] xl:-top-[150px] bg-black/95 backdrop-blur-xl border border-white/15 rounded-lg p-2 text-[7.5px] text-premium-yellow font-medium text-center leading-relaxed w-[125px] uppercase z-50 shadow-[0_15px_40px_rgba(0,0,0,0.9)]">
+                    The creator can apply the method backed by a smart contract patent.
+                    <!-- Línea Conectora más larga -->
+                    <div class="hidden xl:block absolute left-[75%] -translate-x-1/2 top-full w-[1.5px] h-[120px]" style="background-image: linear-gradient(to bottom, rgba(161,161,170,0.6) 50%, transparent 50%); background-size: 100% 6px; background-repeat: repeat-y; z-index: -1;"></div>
+                </div>
+            </div>
+
+            <!-- COLUMNA CENTRAL: EVALUACIÓN + CURSO -->
+            <div class="flex flex-col items-center relative shrink-0 w-[195px] mt-4 xl:mt-0 z-10">
+                
+                <div class="node-title-badge">3. Entry Funnel</div>
+
+                <!-- NODO 3: Funnel + APROBADO -->
+                <div class="flex items-start justify-center gap-2 w-full z-10 relative">
+                    
+                    <!-- Contenedor Izquierdo: Funnel + Cuadro de revisión -->
+                    <div class="flex flex-col items-center shrink-0 w-[120px]">
+                        <!-- Funnel Amarillo Glass (TEXTO DENTRO) -->
+                        <div class="w-[95%] h-[60px] bg-gradient-to-b from-yellow-400/90 to-yellow-600/90 backdrop-blur-md border border-yellow-300/30 flex flex-col items-center justify-start pt-3.5 shadow-glow-yellow" style="clip-path: polygon(0 0, 100% 0, 60% 100%, 40% 100%);">
+                            <span class="text-[10px] font-black uppercase text-black/90 leading-none mb-1.5 tracking-wide">AI IP</span>
+                            <span class="text-[10px] font-black uppercase text-black/70 leading-none tracking-wide">HUMAN IP</span>
+                        </div>
+                        
+                        <!-- Cuadradito de revisión -->
+                        <div class="bg-black/60 backdrop-blur-lg border border-white/10 rounded-lg p-1.5 w-full text-center shadow-lg relative z-10 mt-1 mb-1">
+                            <p class="text-[7.5px] font-medium text-gray-300 leading-tight uppercase tracking-wide">
+                                Review of the work's structure.
+                            </p>
+                            <p class="text-[8.5px] font-bold text-premium-yellow uppercase mt-0.5">
+                                Method Protocol
+                            </p>
                         </div>
                     </div>
-                </li>
-                <li class="flex items-start gap-1.5">
-                    <i data-lucide="shield-check" class="w-3.5 h-3.5 text-premium-yellow shrink-0 mt-0.5"></i>
-                    <div class="w-full">
-                        <span class="font-semibold text-[8.5px] text-gray-200 leading-none block mb-1.5">Profile Validation</span>
-                        <span class="text-[7.5px] text-zinc-300 font-medium leading-relaxed block bg-white/5 border border-white/10 px-1.5 py-1 rounded-md w-full">IMDB + Filmography Track Record</span>
+
+                    <!-- IP APROBADO -->
+                    <div class="bg-green-500/10 backdrop-blur-xl border border-green-500/30 p-1.5 rounded-xl text-center flex flex-col justify-center items-center shadow-glow-green w-[65px] h-[60px] shrink-0 relative node-card mt-0 transition-colors hover:bg-green-500/20">
+                        <span class="text-[9.5px] font-bold text-green-400 leading-none mb-1 tracking-wider">APPROVED IP</span>
+                        <span class="text-[7.5px] text-green-100/80 font-normal leading-tight mb-0.5 mt-1">Straight to the Method</span>
+                        
+                        <div class="absolute -right-2 top-1/2 -translate-y-1/2 bg-black border border-green-500/50 rounded-full p-0.5 shadow-glow-green hidden xl:block z-20">
+                            <i data-lucide="arrow-right" class="w-3 h-3 text-green-400"></i>
+                        </div>
                     </div>
-                </li>
-            </ul>
-        </div>
+                </div>
 
-        <!-- Conector 2 a 3 con FRASE Elevada y Desplazada a la izquierda -->
-        <div class="relative flex flex-col xl:flex-row items-center justify-center shrink-0 w-[20px] xl:w-[45px] my-3 xl:my-0 z-50">
-            <div class="hidden xl:block connector-h w-full z-0"></div>
-            <div class="xl:hidden connector-v"></div>
-            
-            <!-- POPUP CREADOR LISTO -->
-            <div class="xl:absolute xl:left-1/2 xl:-translate-x-[75%] xl:-top-[180px] bg-black/95 backdrop-blur-xl border border-white/15 rounded-lg p-1.5 text-[6px] text-premium-yellow font-medium text-center leading-relaxed w-[110px] uppercase z-50 shadow-[0_15px_40px_rgba(0,0,0,0.9)]">
-                The creator can apply the method backed by a smart contract patent.
-                <div class="hidden xl:block absolute left-[75%] -translate-x-1/2 top-full w-[1.5px] h-[110px]" style="background-image: linear-gradient(to bottom, rgba(161,161,170,0.6) 50%, transparent 50%); background-size: 100% 6px; background-repeat: repeat-y; z-index: -1;"></div>
-            </div>
-        </div>
-
-        <!-- COLUMNA CENTRAL: EVALUACIÓN + CURSO -->
-        <div class="flex flex-col items-center relative shrink-0 w-[195px] pt-3 mt-2 xl:mt-0 xl:mb-2 z-10">
-            
-            <div class="node-title-badge !top-[-4px]">
-                3. Entry Funnel
-            </div>
-
-            <!-- NODO 3: Funnel + APROBADO -->
-            <div class="flex items-start justify-center gap-2 w-full z-10 relative mt-2">
-                
-                <!-- Contenedor Izquierdo: Funnel + Cuadro de revisión -->
-                <div class="flex flex-col items-center shrink-0 w-[120px]">
-                    <!-- Funnel Amarillo Glass (TEXTO DENTRO) -->
-                    <div class="w-[95%] h-[60px] bg-gradient-to-b from-yellow-400/90 to-yellow-600/90 backdrop-blur-md border border-yellow-300/30 flex flex-col items-center justify-start pt-3.5 shadow-glow-yellow" style="clip-path: polygon(0 0, 100% 0, 60% 100%, 40% 100%);">
-                        <span class="text-[8.5px] font-black uppercase text-black/90 leading-none mb-1.5 tracking-wide">AI IP</span>
-                        <span class="text-[8.5px] font-black uppercase text-black/70 leading-none tracking-wide">HUMAN IP</span>
-                    </div>
+                <!-- FLUJO NO PASA (Separado hacia abajo) -->
+                <div class="flex flex-col items-center w-[130px] xl:-ml-[70px] z-10 mt-4 relative">
                     
-                    <!-- Cuadradito de revisión -->
-                    <div class="bg-black/60 backdrop-blur-lg border border-white/10 rounded-lg p-1.5 w-full text-center shadow-lg relative z-10 mt-1 mb-1">
-                        <p class="text-[6px] font-medium text-gray-300 leading-tight uppercase tracking-wide">
-                            Review of the work's structure.
-                        </p>
-                        <p class="text-[7px] font-bold text-premium-yellow uppercase mt-0.5">
-                            Method Protocol
-                        </p>
-                    </div>
-                </div>
+                    <div class="w-px h-6 bg-gradient-to-b from-transparent to-red-500/50"></div>
+                    <i data-lucide="chevron-down" class="w-3.5 h-3.5 text-red-500 -mt-1.5 opacity-80"></i>
 
-                <!-- IP APROBADO -->
-                <div class="bg-green-500/10 backdrop-blur-xl border border-green-500/30 p-1.5 rounded-xl text-center flex flex-col justify-center items-center shadow-glow-green w-[65px] h-[60px] shrink-0 relative node-card mt-0 transition-colors hover:bg-green-500/20">
-                    <span class="text-[8px] font-bold text-green-400 leading-none mb-1 tracking-wider">APPROVED IP</span>
-                    <span class="text-[6px] text-green-100/80 font-normal leading-tight mb-0.5">Straight to the Method</span>
-                    
-                    <div class="absolute -right-2 top-1/2 -translate-y-1/2 bg-black border border-green-500/50 rounded-full p-0.5 shadow-glow-green hidden xl:block z-20">
-                        <i data-lucide="arrow-right" class="w-3 h-3 text-green-400"></i>
+                    <!-- Caja Alerta -->
+                    <div class="bg-red-500/10 backdrop-blur-xl border border-red-500/30 p-2 rounded-xl text-center flex flex-col items-center shadow-glow-red w-full node-card transition-colors hover:bg-red-500/20 mt-1">
+                        <span class="text-[10px] font-bold text-red-400 leading-none mb-1.5 uppercase tracking-wider">Receive an Alert</span>
+                        <span class="text-[8.5px] text-gray-200 font-medium leading-snug block w-full px-0.5">
+                            If it lacks the correct structure.
+                        </span>
+                        <span class="text-[7.5px] text-zinc-400 font-normal leading-tight block w-full px-0.5 mt-1 border-t border-red-500/20 pt-1">
+                            Receive a 5-page report with areas for improvement.
+                        </span>
                     </div>
+
+                    <div class="w-px h-6 bg-gradient-to-b from-transparent to-zinc-500/50"></div>
+                    <i data-lucide="chevron-down" class="w-3.5 h-3.5 text-zinc-500 -mt-1.5 opacity-80"></i>
+
+                    <!-- 2ª Oportunidad -->
+                    <div class="glass-card p-1.5 rounded-xl text-center w-full flex flex-col items-center node-card z-10 mt-1">
+                        <span class="text-[9.5px] font-bold text-premium-yellow uppercase tracking-widest mb-1 border-b border-white/10 pb-1 w-full">2nd Chance</span>
+                        
+                        <div class="bg-yellow-500/10 border border-yellow-500/20 rounded mt-0.5 p-1.5">
+                            <p class="text-[7.5px] text-gray-200 font-medium text-center leading-snug">
+                                The work remains in the <span class="text-premium-yellow font-bold">MarketPlace</span> repository waiting for corrections to be applied before re-attempting to pass to the Method.
+                            </p>
+                        </div>
+                    </div>
+
                 </div>
             </div>
 
-            <!-- FLUJO NO PASA -->
-            <div class="flex flex-col items-center w-[130px] xl:-ml-[70px] z-10 mt-0 relative">
-                
-                <div class="w-px h-2.5 bg-gradient-to-b from-transparent to-red-500/50"></div>
-                <i data-lucide="chevron-down" class="w-3.5 h-3.5 text-red-500 -mt-1 opacity-80"></i>
-
-                <!-- Caja Alerta -->
-                <div class="bg-red-500/10 backdrop-blur-xl border border-red-500/30 p-2 rounded-xl text-center flex flex-col items-center shadow-glow-red w-full node-card transition-colors hover:bg-red-500/20">
-                    <span class="text-[8.5px] font-bold text-red-400 leading-none mb-1 uppercase tracking-wider">Receive an Alert</span>
-                    <span class="text-[7px] text-gray-200 font-medium leading-snug block w-full px-0.5">
-                        If it lacks the correct structure.
-                    </span>
-                    <span class="text-[6px] text-zinc-400 font-normal leading-tight block w-full px-0.5 mt-1 border-t border-red-500/20 pt-1">
-                        Receive a 5-page report with areas for improvement.
-                    </span>
-                </div>
-
-                <div class="w-px h-2.5 bg-gradient-to-b from-transparent to-zinc-500/50"></div>
-                <i data-lucide="chevron-down" class="w-3.5 h-3.5 text-zinc-500 -mt-1 opacity-80"></i>
-
-                <!-- 2ª Oportunidad -->
-                <div class="glass-card p-1.5 rounded-xl text-center w-full flex flex-col items-center node-card z-10">
-                    <span class="text-[8px] font-bold text-premium-yellow uppercase tracking-widest mb-1 border-b border-white/10 pb-1 w-full">2nd Chance</span>
-                    
-                    <div class="bg-yellow-500/10 border border-yellow-500/20 rounded mt-0.5 p-1.5">
-                        <p class="text-[6px] text-gray-200 font-medium text-center leading-snug">
-                            The work remains in the <span class="text-premium-yellow font-bold">MarketPlace</span> repository waiting for corrections to be applied before re-attempting to pass to the Method.
-                        </p>
-                    </div>
-                </div>
-
+            <!-- Conector Nodo 3 a Nodo 4 -->
+            <div class="relative flex flex-col xl:flex-row items-center justify-center shrink-0 w-[20px] my-3 xl:my-0 xl:mt-[50px] z-0">
+                <div class="hidden xl:block connector-h w-full z-0"></div>
+                <div class="xl:hidden connector-v"></div>
             </div>
-        </div>
 
-        <div class="hidden xl:block connector-h-short shrink-0 xl:mt-[-80px] w-[15px]"></div>
-        <div class="xl:hidden connector-v my-1"></div>
-
-        <!-- NODO 4: EL MÉTODO -->
-        <div class="relative shrink-0 xl:mt-[-80px] mt-4 xl:mt-0 w-[145px] flex flex-col items-center z-20">
-            
-            <div class="glass-card p-3 w-full relative z-30 flex flex-col items-center overflow-visible">
-                <div class="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-yellow-500/50 to-transparent"></div>
-                
+            <!-- NODO 4: EL MÉTODO -->
+            <div class="relative flex flex-col items-center shrink-0 w-[145px] mt-4 xl:mt-0 z-20">
                 <div class="node-title-badge">4. The Method</div>
                 
-                <!-- División Arriba: Motor de Procesamiento -->
-                <div class="flex flex-col items-center mt-4 mb-2 border-b border-white/10 pb-2 w-full">
-                    <div class="flex justify-center items-center gap-1 text-premium-yellow flex-wrap px-1 opacity-90">
-                        <i data-lucide="settings" class="w-4 h-4"></i>
-                        <i data-lucide="cog" class="w-3.5 h-3.5"></i>
-                        <i data-lucide="settings" class="w-5 h-5 drop-shadow-glow-yellow"></i>
-                        <i data-lucide="cog" class="w-3 h-3"></i>
-                        <i data-lucide="settings" class="w-3.5 h-3.5"></i>
+                <div class="glass-card p-3 w-full relative z-30 flex flex-col items-center overflow-visible">
+                    <!-- División Arriba: Motor de Procesamiento -->
+                    <div class="flex flex-col items-center mt-2 mb-2 border-b border-white/10 pb-2 w-full">
+                        <div class="flex justify-center items-center gap-1 text-premium-yellow flex-wrap px-1 opacity-90">
+                            <i data-lucide="settings" class="w-4 h-4"></i>
+                            <i data-lucide="cog" class="w-3.5 h-3.5"></i>
+                            <i data-lucide="settings" class="w-5 h-5 drop-shadow-glow-yellow"></i>
+                            <i data-lucide="cog" class="w-3 h-3"></i>
+                            <i data-lucide="settings" class="w-3.5 h-3.5"></i>
+                        </div>
+                        <span class="text-[9px] font-bold text-premium-yellow uppercase tracking-widest mt-2 text-center leading-tight">Processing of<br>The 7 Steps (QIP)</span>
                     </div>
-                    <span class="text-[7.5px] font-bold text-premium-yellow uppercase tracking-widest mt-2 text-center leading-tight">Processing of<br>The 7 Steps (QIP)</span>
+
+                    <!-- División Abajo: Humano -->
+                    <div class="flex flex-col items-center w-full mb-1">
+                        <i data-lucide="user" class="w-4 h-4 text-premium-silver mb-1 opacity-80"></i>
+                        <span class="text-[8.5px] font-semibold text-gray-200 uppercase tracking-widest text-center leading-tight">Human Intervention<br><span class="text-[7px] text-zinc-500 capitalize normal-case font-normal mt-0.5 inline-block">(Socratic Method)</span></span>
+                    </div>
+
+                    <!-- Cuadrado Blanco Interno Patente -->
+                    <div class="bg-black/40 rounded-md p-1.5 text-center border border-white/10 w-full mt-1 shadow-inner backdrop-blur-sm">
+                        <span class="block text-[8.5px] font-semibold text-white leading-tight uppercase tracking-wider">
+                            Application of<br>the Patent&reg;
+                        </span>
+                    </div>
                 </div>
 
-                <!-- División Abajo: Humano -->
-                <div class="flex flex-col items-center w-full mb-1">
-                    <i data-lucide="user" class="w-4 h-4 text-premium-silver mb-1 opacity-80"></i>
-                    <span class="text-[7px] font-semibold text-gray-200 uppercase tracking-widest text-center leading-tight">Human Intervention<br><span class="text-[5.5px] text-zinc-500 capitalize normal-case font-normal mt-0.5 inline-block">(Socratic Method)</span></span>
+                <!-- Texto descriptivo afuera abajo (Separado) -->
+                <div class="bg-black/60 backdrop-blur-xl border border-white/10 rounded-xl p-2.5 mt-8 shadow-lg w-full text-left z-10 relative">
+                    <div class="absolute -top-1.5 left-1/2 -translate-x-1/2 w-2.5 h-2.5 bg-black border-t border-l border-white/10 transform rotate-45"></div>
+                    
+                    <p class="text-[7.5px] text-zinc-300 font-normal leading-relaxed mt-0.5">
+                        <strong class="text-white uppercase block mb-1 border-b border-white/10 pb-0.5 text-[8.5px] tracking-wide">IP METHOD (7 STEPS)</strong>
+                        Forces the work to be developed methodically, <strong class="text-premium-yellow">prioritizing human creativity</strong>.
+                        <br><span class="inline-block mt-0.5"><strong class="text-gray-100 font-semibold">1. Human:</strong> Written traditionally.</span>
+                        <br><span class="inline-block mt-0.5"><strong class="text-gray-100 font-semibold">2. With AI:</strong> Strict commitment to human intervention.</span>
+                        <br><span class="inline-block mt-1 pt-1.5 border-t border-white/10 w-full text-[7px] text-zinc-400 leading-tight">Authorship, traceability, and human legitimacy shielded by <strong class="text-premium-yellow font-bold uppercase">Blockchain Contract</strong>.</span>
+                    </p>
                 </div>
+            </div>
 
-                <!-- Cuadrado Blanco Interno Patente -->
-                <div class="bg-black/40 rounded-md p-1.5 text-center border border-white/10 w-full mt-1 shadow-inner backdrop-blur-sm">
-                    <span class="block text-[7px] font-semibold text-white leading-tight uppercase tracking-wider">
-                        Application of<br>the Patent&reg;
+            <!-- Conector Nodo 4 a QIP Output -->
+            <div class="relative flex flex-col xl:flex-row items-center justify-center shrink-0 w-[20px] my-3 xl:my-0 xl:mt-[50px] z-0">
+                <div class="hidden xl:block connector-h w-full z-0"></div>
+                <div class="xl:hidden connector-v"></div>
+            </div>
+
+            <!-- FASE INTERMEDIA: CAJA QIP -->
+            <div class="relative flex flex-col items-center shrink-0 w-[80px] mt-4 xl:mt-[15px] z-10">
+                <div class="glass-card p-1 w-full flex flex-col items-center relative border border-zinc-700/50 shadow-lg">
+                    <span class="absolute -top-2 bg-black px-1.5 py-0.5 text-[5px] font-bold text-premium-yellow uppercase border border-yellow-500/30 rounded-full tracking-widest shadow-glow-yellow z-10">QIP OUTPUT</span>
+                    
+                    <div class="bg-gradient-to-r from-yellow-500 to-yellow-600 rounded flex flex-col items-center justify-center text-[6px] font-bold text-black text-center py-1 px-1 uppercase shadow-glow-yellow w-full mt-2 mb-1.5 leading-tight tracking-wide">
+                        Human IP<br><span class="text-[4.5px] font-semibold normal-case opacity-90 tracking-normal mt-0.5 block">(Gaming Possibility)</span>
+                    </div>
+                    
+                    <div class="bg-black/60 border border-zinc-600 rounded flex flex-col items-center justify-center text-[6px] font-bold text-white text-center py-1 px-1 uppercase shadow-inner w-full leading-tight tracking-wide">
+                        AI IP<br><span class="text-[4.5px] font-medium normal-case text-zinc-400 tracking-normal mt-0.5 block">(Gaming Possibility)</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dos conectores horizontales hacia QSS -->
+            <div class="relative flex flex-col xl:flex-row justify-center gap-5 shrink-0 w-[15px] my-3 xl:my-0 xl:mt-[45px] z-0">
+                 <div class="hidden xl:block w-full h-[1.5px] bg-gradient-to-r from-yellow-500/80 to-zinc-500/80"></div>
+                 <div class="hidden xl:block w-full h-[1.5px] bg-gradient-to-r from-zinc-600/80 to-zinc-500/80"></div>
+                 <div class="xl:hidden connector-v my-1"></div>
+            </div>
+
+            <!-- NODO 5: QSS -->
+            <div class="relative flex flex-col items-center shrink-0 w-[150px] mt-4 xl:mt-0 z-10">
+                <div class="node-title-badge">5. QSS System</div>
+                
+                <div class="glass-card p-3 w-full relative">
+                    <div class="relative mt-1 mb-1.5 flex justify-center">
+                        <div class="absolute inset-0 bg-white/10 blur-xl rounded-full"></div>
+                        <i data-lucide="cpu" class="w-7 h-7 text-white relative z-10 opacity-90"></i>
+                    </div>
+                    
+                    <span class="block text-[11px] font-bold text-white uppercase text-center leading-none mb-1.5 tracking-widest">QSS: 2nd Phase</span>
+                    <span class="block text-[8.5px] text-premium-yellow font-medium text-center border-b border-white/10 pb-1.5 mb-1.5 leading-tight tracking-wide drop-shadow-glow-yellow">
+                        Development methodology and<br>channel segmentation.
                     </span>
+                    
+                    <div class="text-[7.5px] text-zinc-300 font-normal leading-relaxed text-left w-full px-0.5">
+                        <span class="block mb-1.5 font-medium text-gray-200 border-b border-zinc-800 pb-1">The Operating System has 3 fields of work:</span>
+                        <ul class="space-y-1">
+                            <li><strong class="text-premium-yellow">1st Analytical:</strong> Determines financial processes and genres.</li>
+                            <li><strong class="text-premium-yellow">2nd Development:</strong> Pitch deck, transmedia plan, financing.</li>
+                            <li><strong class="text-premium-yellow">3rd Distribution:</strong> MarketPlace (Human) or YouTube (AI IP).</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
 
-            <!-- Texto descriptivo afuera abajo -->
-            <div class="bg-black/60 backdrop-blur-xl border border-white/10 rounded-xl p-2.5 mt-2.5 shadow-lg w-full text-left z-10 relative">
-                <div class="absolute -top-1.5 left-1/2 -translate-x-1/2 w-2.5 h-2.5 bg-black border-t border-l border-white/10 transform rotate-45"></div>
-                
-                <p class="text-[6px] text-zinc-300 font-normal leading-relaxed mt-0.5">
-                    <strong class="text-white uppercase block mb-1 border-b border-white/10 pb-0.5 text-[7px] tracking-wide">IP METHOD (7 STEPS)</strong>
-                    Forces the work to be developed methodically, <strong class="text-premium-yellow">prioritizing human creativity</strong>.
-                    <br><span class="inline-block mt-0.5"><strong class="text-gray-100 font-semibold">1. Human:</strong> Written traditionally.</span>
-                    <br><span class="inline-block mt-0.5"><strong class="text-gray-100 font-semibold">2. With AI:</strong> Strict commitment to human intervention.</span>
-                    <br><span class="inline-block mt-1 pt-1.5 border-t border-white/10 w-full text-[5.5px] text-zinc-400 leading-tight">Authorship, traceability, and human legitimacy shielded by <strong class="text-premium-yellow font-bold uppercase">Blockchain Contract</strong>.</span>
-                </p>
-            </div>
-        </div>
+            <!-- SVG Bifurcación Final (Desktop) -->
+            <svg width="35" height="70" class="hidden xl:block relative shrink-0 mx-1 xl:mt-[40px] z-0">
+                <path d="M 0 35 L 10 35 L 10 15 L 30 15" fill="none" stroke="rgba(161,161,170,0.5)" stroke-width="1.5" />
+                <polygon points="27,12.5 32,15 27,17.5" fill="#a1a1aa" />
+                <text x="10" y="11" font-size="5.5" font-weight="600" fill="#a1a1aa" letter-spacing="0.05em">SYSTEM A</text>
 
-        <div class="hidden xl:block connector-h-short shrink-0 xl:mt-[-80px] w-[15px]"></div>
-        <div class="xl:hidden connector-v my-1"></div>
+                <path d="M 0 35 L 10 35 L 10 55 L 30 55" fill="none" stroke="rgba(161,161,170,0.5)" stroke-width="1.5" />
+                <polygon points="27,52.5 32,55 27,57.5" fill="#a1a1aa" />
+                <text x="10" y="64" font-size="5.5" font-weight="600" fill="#a1a1aa" letter-spacing="0.05em">SYSTEM AI</text>
+            </svg>
 
-        <!-- FASE INTERMEDIA: CAJA QIP -->
-        <div class="flex flex-col items-center justify-center shrink-0 xl:mt-[-80px] mt-4 z-10 w-[100px]">
-            <div class="glass-card p-1.5 w-full flex flex-col items-center relative border border-zinc-700/50 shadow-lg mt-2">
-                <span class="absolute -top-2 bg-black px-2 py-0.5 text-[5.5px] font-bold text-premium-yellow uppercase border border-yellow-500/30 rounded-full tracking-widest shadow-glow-yellow z-10">QIP OUTPUT</span>
-                
-                <div class="bg-gradient-to-r from-yellow-500 to-yellow-600 rounded-md text-[7px] font-bold text-black text-center py-1.5 px-1 uppercase shadow-glow-yellow w-full mt-2 mb-1.5 leading-tight tracking-wide">
-                    Human IP<br><span class="text-[5px] font-semibold normal-case opacity-90 tracking-normal block mt-0.5">(Gaming Possibility)</span>
+            <!-- Bifurcación Final (Mobile) -->
+            <div class="xl:hidden flex flex-col items-center w-full my-3 relative">
+                <div class="w-px h-5 bg-zinc-600/50"></div>
+                <div class="w-24 h-px bg-zinc-600/50"></div>
+                <div class="flex justify-between w-24 relative">
+                    <div class="flex flex-col items-center">
+                        <div class="w-px h-5 bg-zinc-600/50"></div>
+                        <span class="text-[7.5px] font-semibold mt-1 absolute -left-4 top-5 text-zinc-400 tracking-wide">SYSTEM A</span>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <div class="w-px h-5 bg-zinc-600/50"></div>
+                        <span class="text-[7.5px] font-semibold mt-1 absolute -right-4 top-5 text-zinc-400 tracking-wide">SYSTEM AI</span>
+                    </div>
                 </div>
-                
-                <div class="bg-black/60 border border-zinc-600 rounded-md text-[7px] font-bold text-white text-center py-1.5 px-0.5 uppercase shadow-inner w-full leading-[1.2] tracking-wide">
-                    AI IP<br><span class="text-[5px] font-medium normal-case text-zinc-400 tracking-normal block mt-0.5">(Gaming Possibility)</span>
-                </div>
+                <div class="h-6 w-full"></div>
             </div>
-        </div>
 
-        <!-- Dos conectores horizontales hacia QSS -->
-        <div class="hidden xl:flex flex-col justify-center gap-5 shrink-0 xl:mt-[-80px] w-[15px] z-0">
-             <div class="w-full h-[1.5px] bg-gradient-to-r from-yellow-500/80 to-zinc-500/80"></div>
-             <div class="w-full h-[1.5px] bg-gradient-to-r from-zinc-600/80 to-zinc-500/80"></div>
-        </div>
-        <div class="xl:hidden connector-v my-1"></div>
+            <!-- NODO 6 & 7: MARKETPLACE & SELL -->
+            <div class="flex flex-col xl:flex-row items-start justify-center w-full xl:w-auto shrink-0 mt-4 xl:mt-0 z-20 relative">
 
-        <!-- NODO 5: QSS -->
-        <div class="glass-card p-3 w-[150px] relative shrink-0 xl:mt-[-80px] mt-4 xl:mt-0 flex flex-col items-center justify-center z-10">
-            <div class="node-title-badge">5. QSS System</div>
-            
-            <div class="relative mt-2 mb-1.5">
-                <div class="absolute inset-0 bg-white/10 blur-xl rounded-full"></div>
-                <i data-lucide="cpu" class="w-7 h-7 text-white relative z-10 opacity-90"></i>
-            </div>
-            
-            <span class="text-[9.5px] font-bold text-white uppercase text-center leading-none mb-1.5 tracking-widest">QSS: 2nd Phase</span>
-            <span class="text-[7px] text-premium-yellow font-medium text-center border-b border-white/10 pb-1.5 mb-1.5 leading-tight tracking-wide drop-shadow-glow-yellow">
-                Development methodology and<br>channel segmentation.
-            </span>
-            
-            <div class="text-[6px] text-zinc-300 font-normal leading-relaxed text-left w-full px-0.5">
-                <span class="block mb-1.5 font-medium text-gray-200 border-b border-zinc-800 pb-1">The Operating System has 3 fields of work:</span>
-                <ul class="space-y-1">
-                    <li><strong class="text-premium-yellow">1st Analytical:</strong> Determines financial processes and genres.</li>
-                    <li><strong class="text-premium-yellow">2nd Development:</strong> Pitch deck, transmedia plan, financing.</li>
-                    <li><strong class="text-premium-yellow">3rd Distribution:</strong> Auction (Human) or YouTube (AI IP).</li>
-                </ul>
-            </div>
-        </div>
-
-        <!-- SVG Bifurcación Final (Desktop) -->
-        <svg width="35" height="70" class="hidden xl:block relative shrink-0 xl:mt-[-80px] mx-1 z-0">
-            <path d="M 0 35 L 10 35 L 10 15 L 30 15" fill="none" stroke="rgba(161,161,170,0.5)" stroke-width="1.5" />
-            <polygon points="27,12.5 32,15 27,17.5" fill="#a1a1aa" />
-            <text x="12" y="11" font-size="4.5" font-weight="600" fill="#a1a1aa" letter-spacing="0.05em">SYSTEM A</text>
-
-            <path d="M 0 35 L 10 35 L 10 55 L 30 55" fill="none" stroke="rgba(161,161,170,0.5)" stroke-width="1.5" />
-            <polygon points="27,52.5 32,55 27,57.5" fill="#a1a1aa" />
-            <text x="12" y="62" font-size="4.5" font-weight="600" fill="#a1a1aa" letter-spacing="0.05em">SYSTEM AI</text>
-        </svg>
-
-        <!-- Bifurcación Final (Mobile) -->
-        <div class="xl:hidden flex flex-col items-center w-full my-3 relative">
-            <div class="w-px h-5 bg-zinc-600/50"></div>
-            <div class="w-24 h-px bg-zinc-600/50"></div>
-            <div class="flex justify-between w-24 relative">
-                <div class="flex flex-col items-center">
-                    <div class="w-px h-5 bg-zinc-600/50"></div>
-                    <span class="text-[6px] font-semibold mt-1 absolute -left-3 top-5 text-zinc-400 tracking-wide">SYSTEM A</span>
-                </div>
-                <div class="flex flex-col items-center">
-                    <div class="w-px h-5 bg-zinc-600/50"></div>
-                    <span class="text-[6px] font-semibold mt-1 absolute -right-3 top-5 text-zinc-400 tracking-wide">SYSTEM AI</span>
-                </div>
-            </div>
-            <div class="h-6 w-full"></div>
-        </div>
-
-        <!-- NODO 6 & DESTINOS FINALES -->
-        <div class="flex flex-row items-stretch justify-center w-full xl:w-auto shrink-0 xl:mt-[-80px] z-20 relative">
-            
-            <!-- Column with the Nodes -->
-            <div class="flex flex-col justify-between items-center w-[145px] relative z-10">
-
-                <!-- NODO 6: MarketPlace (Dashboard) -->
-                <div class="glass-card p-2 rounded-xl w-full flex flex-col items-center shadow-glow-yellow relative border border-yellow-500/30 hover:border-yellow-500/60 transition-colors cursor-default">
+                <!-- NODO 6: MarketPlace -->
+                <div class="relative flex flex-col items-center w-[125px] z-10">
                     <div class="node-title-badge !bg-black/90 !border-yellow-500/50 !text-premium-yellow shadow-glow-yellow">6. MarketPlace</div>
                     
-                    <span class="text-[7.5px] font-bold text-white uppercase tracking-widest mt-2.5 mb-1 text-center leading-none">Dashboard<br><span class="text-[5.5px] text-zinc-400 font-normal normal-case mt-0.5 inline-block">Movie Repository</span></span>
-                    
-                    <!-- Mini Dashboard Flotante -->
-                    <div class="w-full bg-black/60 border border-white/10 rounded-lg p-1.5 flex flex-wrap justify-center gap-1 mt-0.5 shadow-inner">
-                        <div class="bg-yellow-500/20 border border-yellow-500/40 rounded px-1.5 py-0.5 text-[5px] text-yellow-200 flex items-center gap-1 shadow-sm"><i data-lucide="film" class="w-2 h-2"></i> Human IP</div>
-                        <div class="bg-white/10 border border-white/20 rounded px-1.5 py-0.5 text-[5px] text-gray-300 flex items-center gap-1 shadow-sm whitespace-nowrap"><i data-lucide="clapperboard" class="w-2 h-2"></i> AI IP</div>
-                        <div class="bg-yellow-500/20 border border-yellow-500/40 rounded px-1.5 py-0.5 text-[5px] text-yellow-200 flex items-center gap-1 shadow-sm"><i data-lucide="film" class="w-2 h-2"></i> Human IP</div>
-                        <div class="bg-white/10 border border-white/20 rounded px-1.5 py-0.5 text-[5px] text-gray-300 flex items-center gap-1 shadow-sm whitespace-nowrap"><i data-lucide="clapperboard" class="w-2 h-2"></i> AI IP</div>
+                    <div class="glass-card p-2 rounded-xl w-full flex flex-col items-center shadow-glow-yellow relative border border-yellow-500/30 hover:border-yellow-500/60 transition-colors cursor-default mt-1.5">
+                        <span class="text-[9px] font-bold text-white uppercase tracking-widest mt-1 mb-1 text-center leading-none">Movie Repository</span>
+                        
+                        <!-- Dashboard de películas apilado en vertical (2 gris arriba, 2 amarillo abajo) -->
+                        <div class="w-full bg-black/60 border border-white/10 rounded-lg p-1.5 flex flex-col items-center gap-0.5 mt-0.5 shadow-inner">
+                            <div class="w-full bg-white/10 border border-white/20 rounded px-1.5 py-0.5 text-[6.5px] text-gray-300 flex items-center justify-center gap-1 shadow-sm"><i data-lucide="film" class="w-2 h-2"></i> Human IP</div>
+                            <div class="w-full bg-white/10 border border-white/20 rounded px-1.5 py-0.5 text-[6.5px] text-gray-300 flex items-center justify-center gap-1 shadow-sm"><i data-lucide="film" class="w-2 h-2"></i> Human IP</div>
+                            
+                            <div class="w-full bg-yellow-500/20 border border-yellow-500/40 rounded px-1.5 py-0.5 text-[6.5px] text-yellow-200 flex items-center justify-center gap-1 shadow-sm mt-0.5"><i data-lucide="clapperboard" class="w-2 h-2"></i> AI IP</div>
+                            <div class="w-full bg-yellow-500/20 border border-yellow-500/40 rounded px-1.5 py-0.5 text-[6.5px] text-yellow-200 flex items-center justify-center gap-1 shadow-sm"><i data-lucide="clapperboard" class="w-2 h-2"></i> AI IP</div>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Arrow: MarketPlace to Auction -->
-                <div class="flex flex-col items-center my-1 w-full">
-                    <span class="text-[5px] text-zinc-400 font-bold mb-0.5 tracking-wider uppercase">Human IP</span>
-                    <div class="h-3 w-px bg-zinc-500/80"></div>
+                <!-- Desktop Connectors -->
+                <svg width="50" height="150" class="hidden xl:block relative shrink-0 mx-1 xl:mt-[40px] z-0">
+                    <!-- Human IP to Auction (Upwards) -->
+                    <path d="M 0 35 C 25 35, 25 0, 45 0" fill="none" stroke="rgba(161,161,170,0.6)" stroke-width="1.5" />
+                    <polygon points="41,-2.5 46,0 41,2.5" fill="#a1a1aa" />
+                    <text x="3" y="15" font-size="5.5" font-weight="700" fill="#a1a1aa" letter-spacing="0.05em">HUMAN IP</text>
+
+                    <!-- AI IP to YouTube (Downwards) -->
+                    <path d="M 0 35 C 25 35, 25 90, 45 90" fill="none" stroke="#facc15" stroke-width="1.5" stroke-dasharray="2,2" />
+                    <polygon points="41,87.5 46,90 41,92.5" fill="#facc15" />
+                    <text x="3" y="70" font-size="5.5" font-weight="700" fill="#facc15" letter-spacing="0.05em">AI IP</text>
+                </svg>
+
+                <!-- Mobile Connector -->
+                <div class="xl:hidden flex flex-col items-center my-3 w-full relative">
+                    <div class="w-px h-6 bg-zinc-600/50"></div>
                     <i data-lucide="chevron-down" class="w-3.5 h-3.5 text-zinc-500 -mt-1.5 opacity-80"></i>
                 </div>
 
-                <!-- NODO 7: Auction -->
-                <div class="glass-card p-2.5 rounded-xl w-full flex flex-col items-center shadow-lg relative border border-zinc-600/30 cursor-default">
-                    <div class="node-title-badge">7. Auction</div>
-                    
-                    <div class="bg-black/50 p-1.5 rounded-lg mt-1 border border-white/5 backdrop-blur-md">
-                        <i data-lucide="gavel" class="w-4 h-4 text-white opacity-90"></i>
-                    </div>
-                    
-                    <div class="mt-1 w-full text-center">
-                        <span class="text-[8.5px] font-bold block text-white uppercase tracking-widest mb-0.5">Human IPs</span>
-                        <span class="text-[6px] font-normal text-zinc-400 block leading-tight px-1">Human IP works enter the catalog to be sold.</span>
-                    </div>
-                </div>
+                <!-- NODO 7: SELL Column -->
+                <div class="relative flex flex-col items-center z-10 xl:mt-[-25px] mt-2">
+                    <!-- Global Badge for Node 7 -->
+                    <div class="absolute -top-10 text-[11px] font-black text-white uppercase tracking-widest bg-gradient-to-r from-red-600 to-red-900 px-4 py-1.5 rounded-full border border-red-500/30 shadow-glow-red z-20">7. SELL</div>
 
-                <!-- Arrow: Auction to YouTube -->
-                <div class="flex flex-col items-center my-1 w-full">
-                    <span class="text-[5px] text-red-400 font-bold mb-0.5 tracking-wider uppercase">Unsold</span>
-                    <div class="h-3 w-0 border-l-[1.5px] border-dashed border-red-500/60"></div>
-                    <i data-lucide="chevron-down" class="w-3.5 h-3.5 text-red-500/80 -mt-1.5"></i>
-                </div>
-
-                <!-- Destino final: YouTube -->
-                <div class="glass-card p-2 rounded-xl w-full flex flex-col items-center shadow-glow-red relative border border-red-500/20 hover:border-red-500/40 transition-colors cursor-default">
-                    <div class="node-title-badge !bg-black/90 !border-red-500/50 !text-red-400 shadow-glow-red">YouTube</div>
-                    
-                    <div class="bg-black/50 p-1.5 rounded-lg mt-1 border border-white/5 backdrop-blur-md">
-                        <i data-lucide="youtube" class="w-4 h-4 text-red-500 opacity-90"></i>
+                    <!-- Auction Card -->
+                    <div class="glass-card p-2.5 rounded-xl w-[125px] flex flex-col items-center shadow-lg relative border border-zinc-600/30 cursor-default mt-4 xl:mt-2">
+                        <span class="text-[9.5px] font-bold text-white mb-1.5 uppercase tracking-widest bg-black/50 px-2 py-0.5 rounded-full border border-white/10">Auction</span>
+                        <div class="bg-black/50 p-1.5 rounded-lg border border-white/5 backdrop-blur-md">
+                            <i data-lucide="gavel" class="w-4 h-4 text-white opacity-90"></i>
+                        </div>
+                        
+                        <div class="mt-1 w-full text-center">
+                            <span class="text-[7.5px] font-normal text-zinc-400 block leading-tight px-1 mt-1.5">Human IP works enter the catalog to be sold.</span>
+                        </div>
                     </div>
-                    
-                    <div class="mt-1 w-full text-center">
-                        <span class="text-[8.5px] font-bold block text-red-400 uppercase tracking-widest mb-0.5">Exposure</span>
-                        <span class="text-[6.5px] font-semibold text-white block leading-tight">AI IP</span>
-                        <span class="text-[5px] text-zinc-500 block mb-1">+ Unsold Human IPs</span>
-                        <span class="text-[5.5px] font-normal text-zinc-400 block leading-tight border-t border-red-500/20 pt-1">Direct traffic and massive exposure for the creator.</span>
+
+                    <!-- Arrow: Auction to YouTube -->
+                    <div class="flex flex-col items-center w-full mt-3 mb-2">
+                        <span class="text-[6px] text-red-400 font-bold mb-1 tracking-wider uppercase">Unsold</span>
+                        <div class="h-6 w-0 border-l-[1.5px] border-dashed border-red-500/60"></div>
+                        <i data-lucide="chevron-down" class="w-3.5 h-3.5 text-red-500/80 -mt-1.5"></i>
+                    </div>
+
+                    <!-- YouTube Card -->
+                    <div class="glass-card p-2.5 rounded-xl w-[125px] flex flex-col items-center shadow-glow-red relative border border-red-500/20 hover:border-red-500/40 transition-colors cursor-default mt-1">
+                        <span class="text-[9.5px] font-bold text-red-400 mb-1.5 uppercase tracking-widest bg-red-950/50 px-2 py-0.5 rounded-full border border-red-500/20">YouTube</span>
+                        <div class="bg-black/50 p-1.5 rounded-lg border border-white/5 backdrop-blur-md">
+                            <i data-lucide="youtube" class="w-4 h-4 text-red-500 opacity-90"></i>
+                        </div>
+                        
+                        <div class="mt-1 w-full text-center">
+                            <span class="text-[7.5px] font-semibold text-white block leading-tight mt-1.5">AI IP</span>
+                            <span class="text-[6px] text-zinc-500 block mb-1">+ Unsold Human IPs</span>
+                            <span class="text-[7px] font-normal text-zinc-400 block leading-tight border-t border-red-500/20 pt-1.5">Direct traffic and massive exposure.</span>
+                        </div>
                     </div>
                 </div>
 
             </div>
-
-            <!-- BYPASS ARROW for AI IP (MarketPlace -> YouTube directly) -->
-            <div class="w-[25px] relative flex flex-col z-0">
-                <!-- The bypass line -->
-                <div class="absolute top-[40px] bottom-[35px] left-[-5px] right-1 border-r-[1.5px] border-t-[1.5px] border-b-[1.5px] border-dashed border-premium-yellow rounded-r-lg opacity-80"></div>
-                <!-- Arrow Tip -->
-                <div class="absolute bottom-[31px] left-[-8px] text-premium-yellow">
-                    <i data-lucide="chevron-left" class="w-4 h-4"></i>
-                </div>
-                <!-- Label Background -->
-                <div class="absolute top-1/2 right-[0px] -translate-y-1/2 flex items-center justify-center bg-black/90 px-0.5 py-1.5 rounded border border-premium-yellow/30 shadow-glow-yellow">
-                    <span class="text-[5px] font-bold text-premium-yellow uppercase tracking-widest" style="writing-mode: vertical-rl; transform: rotate(180deg);">AI IP</span>
-                </div>
-            </div>
-
         </div>
-
     </div>
 
     <!-- Inicializar Iconos -->
     <script>
-        lucide.createIcons();
-    </script>
-</body>
-</html>
         lucide.createIcons();
     </script>
 </body>
